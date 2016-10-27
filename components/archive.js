@@ -17,32 +17,13 @@ module.exports = function (state, prev, send) {
   }
 
   function display () {
-
-    if (archive.display === 'grid') {
-      return html`
-        <div>
-          <h3>Download View</h3>
-          <button
-            class="btn btn--green"
-            onclick=${e => send('archive:toggle')}
-            >${archive.display === 'grid' ? 'View Peers' : 'View Grid'}</button>
-          ${feeds.map(function (feed) {
-            return createFeed(feed)
-          })}
-        </div>
-      `
-    } else {
-      return html`
-        <div>
-          <h3>Peer View</h3>
-          <button
-            class="btn btn--green"
-            onclick=${e => send('archive:toggle')}
-            >${archive.display === 'grid' ? 'View Peers' : 'View Grid'}</button>
-          ${peers(state, prev, send)}
-        </div>
-      `
-    }
+    return html`
+      <div>
+        ${feeds.map(function (feed) {
+          return createFeed(feed)
+        })}
+      </div>
+    `
   }
 
   return html`
@@ -58,10 +39,6 @@ module.exports = function (state, prev, send) {
       </header>
       <main class="main">
         <div class="container">
-          <div class="section">
-          <h3 class="key">Archive: <b>${archive.key}</b></h3>
-          ${stats()}
-          </div>
           ${display()}
         </div>
       </main>

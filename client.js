@@ -14,3 +14,4 @@ css('./style.css', { global: true })
 
 const tree = app.start()
 document.body.appendChild(tree)
+document.title = 'Dat Demo'
