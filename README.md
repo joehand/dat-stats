@@ -1,7 +1,7 @@
 # dat-stats
 
 * add your key to `server.js`
-* run `node server.js`
+* run `npm start`. This will build the css and run the server.
 * visit localhost:10000 for interface and localhost:8000 for files.
 
 ## TODO
