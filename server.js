@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const http = require('http')
 const hyperdrive = require('hyperdrive')
 const serve = require('hyperdrive-http')
