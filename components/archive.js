@@ -20,7 +20,7 @@ module.exports = function (state, prev, send) {
       <div class="section">
         <h3>${feed.name}</h3>
         <h6>Size: ${prettyBytes(feed.bytes)} Blocks: ${feed.blocks.length}</h6>
-        <div>
+        <div id="grid-${feed.name}">
           ${grid(feed.blocks)}
         </div>
       </div>
