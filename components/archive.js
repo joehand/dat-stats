@@ -1,7 +1,6 @@
 const html = require('choo/html')
 const prettyBytes = require('pretty-bytes')
 const createGridView = require('./grid')
-const peers = require('./peers')
 
 module.exports = function (state, prev, send) {
   const archive = state.archive
@@ -14,35 +13,6 @@ module.exports = function (state, prev, send) {
         <h6>Download Speed: ${prettyBytes(archive.downloadSpeed)}/s</h6>
       </div>
     `
-  }
-
-  function display () {
-
-    if (archive.display === 'grid') {
-      return html`
-        <div>
-          <h3>Download View</h3>
-          <button
-            class="btn btn--green"
-            onclick=${e => send('archive:toggle')}
-            >${archive.display === 'grid' ? 'View Peers' : 'View Grid'}</button>
-          ${feeds.map(function (feed) {
-            return createFeed(feed)
-          })}
-        </div>
-      `
-    } else {
-      return html`
-        <div>
-          <h3>Peer View</h3>
-          <button
-            class="btn btn--green"
-            onclick=${e => send('archive:toggle')}
-            >${archive.display === 'grid' ? 'View Peers' : 'View Grid'}</button>
-          ${peers(state, prev, send)}
-        </div>
-      `
-    }
   }
 
   return html`
@@ -62,7 +32,9 @@ module.exports = function (state, prev, send) {
           <h3 class="key">Archive: <b>${archive.key}</b></h3>
           ${stats()}
           </div>
-          ${display()}
+          ${feeds.map(function (feed) {
+              return createFeed(feed)
+            })}
         </div>
       </main>
     </div>

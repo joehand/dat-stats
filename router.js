@@ -11,7 +11,7 @@ module.exports = function (archive) {
 
   const css = bankai.css()
   router.on('/bundle.css', (req, res) => css(req, res).pipe(res))
-  const js = bankai.js(browserify, require.resolve('./client.js'))
+  const js = bankai.js(browserify, require.resolve('./index.js'))
   router.on('/bundle.js', (req, res) => js(req, res).pipe(res))
 
   router.on('/events', (req, res) => hyperServer(archive, res))

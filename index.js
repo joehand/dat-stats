@@ -1,5 +1,4 @@
 const choo = require('choo')
-const html = require('choo/html')
 const css = require('sheetify')
 
 const app = choo()
