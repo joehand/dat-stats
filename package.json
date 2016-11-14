@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "bankai": "^4.0.2",
+    "cache-element": "^1.1.1",
     "choo": "^3.3.0",
     "event-source-stream": "^1.5.0",
     "hypercore-stats-server": "^1.0.0",
