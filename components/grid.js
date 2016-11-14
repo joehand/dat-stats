@@ -17,7 +17,7 @@ function createGrid (el, data) {
   const size = data.length > 200 ? 8 : 12
   const pad = 1
   let cols = Math.floor(1106 / (size + pad))
-  const rows = Math.floor(data.length/cols) + 1
+  const rows = Math.floor(data.length / cols) + 1
   if (rows === 1) cols = data.length
 
   const grid = pixels(gridifyBlocks(data), {
@@ -26,12 +26,12 @@ function createGrid (el, data) {
     padding: pad,
     columns: cols,
     rows: rows,
-    background: [.91,.92,.93],
+    background: [.91, .92, .93],
     formatted: true
   })
 
   grid._update = grid.update
-  grid.update = (data) =>  {
+  grid.update = (data) => {
     grid._update(gridifyBlocks(data))
   }
 
@@ -39,8 +39,8 @@ function createGrid (el, data) {
     const gridData = []
     // const end = blocks.length > 1000 ? 1000 : blocks.length
     for (let i = 0; i < blocks.length; i++) {
-      if (blocks[i]) gridData.push([.207,.705,.310])
-      else gridData.push([.91,.92,.93])
+      if (blocks[i]) gridData.push([.207, .705, .310])
+      else gridData.push([.91, .92, .93])
     }
     return gridData
   }
